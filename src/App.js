@@ -23,7 +23,7 @@ export default function App() {
 }
 
 function RandomQuote() {
-  const { data, loading, erro, refetch } = useQuery(RANDOM_QUOTE_QUERY, {
+  const { data, loading, error, refetch } = useQuery(RANDOM_QUOTE_QUERY, {
     onError: (err) => {
       console.log("error", err);
       window.lastError = err;
