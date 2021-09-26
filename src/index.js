@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
+import App from './components/App';
 
 import './styles.css';
 
@@ -14,7 +14,7 @@ const client = new ApolloClient({
   queryDeduplication : false
 });
 
-
+const rootElement = document.getElementById('root');
 ReactDOM.render(
   <React.StrictMode>
 
@@ -22,5 +22,5 @@ ReactDOM.render(
       <App />
     </ApolloProvider>
   </React.StrictMode>,
-  document.getElementById('root')
+rootElement
 );
