@@ -23,10 +23,20 @@ export default function App() {
 }
 
 function RandomQuote() {
-  const {data, loading} = useQuery(RANDOM_QUOTE_QUERY);
+  const { data, loading, error } = useQuery(RANDOM_QUOTE_QUERY, {
+    onError: (err) => {
+      console.log("error", err);
+      window.lastError = err;
+    },
+    errorPolicy: "all"
+  });
 
   if (loading) {
     return "Quote is loading...";
+  }
+
+  if (error) {
+    return "Could not load quote!";
   }
 
   const {text, author} = data.randomQuote;
