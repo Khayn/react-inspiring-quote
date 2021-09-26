@@ -28,7 +28,8 @@ function RandomQuote() {
       console.log("error", err);
       window.lastError = err;
     },
-    errorPolicy: "all"
+    errorPolicy: "all",
+    fetchPolicy: "no-cache"
   });
 
   if (loading) {

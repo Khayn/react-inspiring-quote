@@ -10,7 +10,8 @@ const URL = "https://khayn-graphql-random.herokuapp.com/";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  link: new HttpLink({uri: URL})
+  link: new HttpLink({ uri: URL }),
+  queryDeduplication : false
 });
 
 
