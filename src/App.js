@@ -23,7 +23,7 @@ export default function App() {
 }
 
 function RandomQuote() {
-  const { data, loading, error } = useQuery(RANDOM_QUOTE_QUERY, {
+  const { data, loading, erro, refetch } = useQuery(RANDOM_QUOTE_QUERY, {
     onError: (err) => {
       console.log("error", err);
       window.lastError = err;
@@ -41,7 +41,17 @@ function RandomQuote() {
 
   const {text, author} = data.randomQuote;
   
-  return <Quote text={text} author={author} />;
+  return (
+    <>
+      <Quote text={text} author={author} />
+      <button
+        onClick={() => {
+          refetch()
+        }}
+      >
+        Get new quote!</button>
+    </>
+  );
 }
 
 function Quote({text, author}) {
